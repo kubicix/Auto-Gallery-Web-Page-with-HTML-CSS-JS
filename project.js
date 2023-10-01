@@ -21,13 +21,14 @@ function addCar(e){
     const url =urlElement.value;
     if (title === "" || price ===""||  url==="") {
         // For empty fields
-        ui.showAlert('Please fill in the fields', 'danger')
+        ui.displayMessages('Please fill in all the fields', 'danger');
     }
     else{
         // new car
         const newCar=new Car(title,price,url)
 
         ui.addCarToUI(newCar);
+        ui.displayMessages("Car added successfully","success")
         //ADDING CAR TO INTERFACE
     }
     
