@@ -1,4 +1,4 @@
-# Auto-Gallery-Web-Page-with-HTML-CSS-JS
+# Auto-Gallery-Web-Page-with-HTML-and-JS
 
 This project is a simple car gallery website that allows users to add, delete, and view cars. The application uses HTML, Bootstrap for styling, and JavaScript for DOM manipulation. Local Storage is utilized to persistently store car data even after the page is refreshed.
 
