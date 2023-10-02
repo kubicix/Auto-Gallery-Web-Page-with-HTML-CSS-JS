@@ -1,8 +1,9 @@
-const form = document.getElementById("car-form")
-const titleElement=document.querySelector("#title")
-const priceElement=document.querySelector("#price")
-const urlElement=document.querySelector("#url")
+const form = document.getElementById("car-form");
+const titleElement=document.querySelector("#title");
+const priceElement=document.querySelector("#price");
+const urlElement=document.querySelector("#url");
 const cardBody=document.querySelectorAll(".card-body")[1];
+const clear = document.getElementById("clear-cars");
 
 // Starting UI OBJECT
 
@@ -22,6 +23,8 @@ function eventListeners(){
     })
 
     cardBody.addEventListener("click",deleteCar);
+
+    clear.addEventListener("click",clearAllCars);
 }
 
 function addCar(e){
@@ -52,5 +55,17 @@ function addCar(e){
 function deleteCar(e){
     if(e.target.id==="delete-car"){
         ui.deleteCarFromUI(e.target);
+
+        storage.deleteCarFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent)
+
+
+        ui.displayMessages("Item deleted succcessfuly","success")
+        // console.log(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
     }
 }
+
+function clearAllCars() {
+    ui.clearAllCarsFromUI();
+    storage.clearAllCarsFromStorage();
+}
+

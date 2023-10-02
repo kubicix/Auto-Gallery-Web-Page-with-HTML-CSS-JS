@@ -46,3 +46,12 @@ UI.prototype.deleteCarFromUI=function(element){
     const parentElement = element.parentElement.parentElement ;  //parent of the tr tag
     parentElement.remove();
 }
+
+UI.prototype.clearAllCarsFromUI=function(){
+    const carList = document.getElementById("cars");
+    //carList.innerHTML="";
+
+    while(carList.firstElementChild !== null){
+        carList.firstElementChild.remove();
+    }
+}
