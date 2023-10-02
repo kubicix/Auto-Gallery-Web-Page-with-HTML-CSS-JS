@@ -41,3 +41,8 @@ UI.prototype.loadAllCars=function(cars){
       </tr>`
     })
 }
+
+UI.prototype.deleteCarFromUI=function(element){
+    const parentElement = element.parentElement.parentElement ;  //parent of the tr tag
+    parentElement.remove();
+}

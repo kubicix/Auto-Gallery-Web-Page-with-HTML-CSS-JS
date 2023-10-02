@@ -2,6 +2,7 @@ const form = document.getElementById("car-form")
 const titleElement=document.querySelector("#title")
 const priceElement=document.querySelector("#price")
 const urlElement=document.querySelector("#url")
+const cardBody=document.querySelectorAll(".card-body")[1];
 
 // Starting UI OBJECT
 
@@ -19,6 +20,8 @@ function eventListeners(){
         let cars=storage.getCarsFromStorage();
         ui.loadAllCars(cars);
     })
+
+    cardBody.addEventListener("click",deleteCar);
 }
 
 function addCar(e){
@@ -44,4 +47,10 @@ function addCar(e){
     ui.clearInputs(titleElement,urlElement,priceElement);
 
     e.preventDefault();
+}
+
+function deleteCar(e){
+    if(e.target.id==="delete-car"){
+        ui.deleteCarFromUI(e.target);
+    }
 }
