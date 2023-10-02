@@ -6,6 +6,7 @@ const urlElement=document.querySelector("#url")
 // Starting UI OBJECT
 
 const ui=new UI();
+const storage=new Storage();
 
 // Loading all events
 
@@ -13,6 +14,11 @@ eventListeners();
 
 function eventListeners(){
     form.addEventListener("submit",addCar);
+
+    document.addEventListener("DOMContentLoaded",function(){
+        let cars=storage.getCarsFromStorage();
+        ui.loadAllCars(cars);
+    })
 }
 
 function addCar(e){
@@ -28,6 +34,9 @@ function addCar(e){
         const newCar=new Car(title,price,url)
 
         ui.addCarToUI(newCar);
+
+        storage.addCarToStorage(newCar);
+
         ui.displayMessages("Car added successfully","success")
         //ADDING CAR TO INTERFACE
     }
